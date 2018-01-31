@@ -2,10 +2,14 @@ doctype html
 html
   head
     title Briggs Elsperger
-    link(res="stylesheet", href="/dist/landingPage.css")
+    link(rel="stylesheet", href="/stylesheets/landingPage.css")
+    link(href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Satisfy" rel="stylesheet")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     .title
-      h1 #{`<Briggs Elsperger/>`}
+      h1
+        | <
+        span#name Briggs Elsperger
+        | />
     .links
       a(href="https://github.com/I3uckwheat") Github

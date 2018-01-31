@@ -1,0 +1,34 @@
+body {
+  background-color: #1b2a41
+}
+
+.title{
+  color: white;
+  width: 95%;
+  height: 70%;
+  text-align: center;
+  font-size: 300%;
+  margin-top: 10%;
+  font-family: 'Old Standard TT', serif;}
+
+#name{
+  font-size: 100%;
+  font-family: 'Satisfy', cursive;
+}
+
+a{
+  color: #ccc9dc;
+}
+
+.links{
+  text-align: center;
+  font-size: 200%;
+}
+
+
+
+/* Fonts to use
+font-family: 'Satisfy', cursive;
+
+font-family: 'Old Standard TT', serif;
+*/
