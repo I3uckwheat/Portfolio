@@ -17,7 +17,7 @@ exports.developmentErrors = (err, req, res, next) => {
   res.format({
     //based on the 'accept' http header
     'text/html': () => {
-      res.rnder('error', errorDetails);
+      res.render('error', errorDetails);
     },
     'application/json': () => res.json(errorDetails)
   });
