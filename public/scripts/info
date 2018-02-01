@@ -1,0 +1,3 @@
+put JS scripts here and load them like
+
+script(src="/scripts/NAME HERE")
