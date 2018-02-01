@@ -10,6 +10,10 @@ router.get('/', (req, res) => {
   res.render('landingPage')
 })
 
+router.get('/more', (req, res) => {
+  res.render('learnMore')
+})
+
 router.use('/blog', blog)
 
 router.use('/apps', apps)
