@@ -5,12 +5,12 @@ exports.index = (req, res) => {
   res.render("blog/blogIndex")
 }
 
-exports.addPost = (req, res) => {
-  res.render('blog/editPost', {title: "Add Post"})
-}
-
 exports.getBlogPost = (req, res) => {
   res.render("blog/blogPost")
+}
+
+exports.addPost = (req, res) => {
+  res.render('blog/editPost', {title: "Add Post"})
 }
 
 exports.createPost = (req, res) => {
