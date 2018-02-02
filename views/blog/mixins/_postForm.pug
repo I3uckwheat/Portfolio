@@ -1,0 +1,13 @@
+mixin postForm(post = {})
+  form(action=`/blog` method="POST")
+    label(for="title") Title
+    input(type="text" name = "title" value=post.title)
+
+    label(for="postBody") Body
+    textarea(name="postBody")= post.description
+
+    label(for="tags") Tags
+    - const tags = post.tags ? post.tags.join(' ') : ''
+    input(type="text" name="tags" value=tags)
+
+    input(type="submit" value="Save")

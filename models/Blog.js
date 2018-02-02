@@ -26,4 +26,13 @@ const postSchema = new mongoose.Schema({
   tags: [String],
 })
 
+postSchema.pre('save', function(next) {
+  if(!this.isModified('name')) {
+    next();
+    return;
+  }
+  this.slug = slug(this.name);
+  next();
+})
+
 module.exports = mongoose.model("Post", postSchema);
