@@ -11,8 +11,10 @@ router.get('/', (req, res) => {
 })
 
 router.get('/more', (req, res) => {
-  res.render('learnMore')
+  res.render('learnMore', {title: "Learn More"})
 })
+
+router.use('/love-mikinze', express.static('public/apps/mikinze'))
 
 router.use('/blog', blog)
 
