@@ -30,6 +30,18 @@ exports.createPost = (req, res, next) => {
     })
 }
 
-exports.updatePost = (req, res) => {
-  res.send("updatePost route")
+exports.editPost = (req, res, next) => {
+  const slug = req.params.slug;
+  const post = Post.findOne({slug})
+    .then((post) => {
+      if(!post) return next();
+      res.render('blog/editPost', {title: "Edit Post", post})
+    })
+    .catch((err) => {
+      return next(err)
+    })
+}
+
+exports.deletePost = (req, res, next) => {
+  res.send("delete post")
 }
