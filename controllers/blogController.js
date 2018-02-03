@@ -20,7 +20,17 @@ exports.createPost = (req, res, next) => {
 }
 
 exports.updatePost = (req, res, next) => {
-  // update the post
+  const postId = req.params.id;
+  Post.findOneAndUpdate({_id: postId}, req.body, {
+    new: true,
+    runValidators: true
+  }).exec()
+    .then((post) => {
+      res.redirect(`/blog/${post.slug}`);
+    })
+    .catch((err) => {
+      return next(err);
+    });
 }
 
 exports.editPost = (req, res, next) => {
@@ -28,7 +38,7 @@ exports.editPost = (req, res, next) => {
   const post = Post.findOne({slug})
     .then((post) => {
       if(!post) return next();
-      res.render('blog/editPost', {title: "Edit Post", post})
+      res.render('blog/editPost', {title: `Edit "${post.title}"`, post})
     })
     .catch((err) => {
       return next(err)
