@@ -6,6 +6,12 @@ exports.notFound = (req, res, next) => {
   next(err)
 };
 
+exports.validationError = (err, req, res, next) => {
+  if(!err.errors) return next(err);
+
+  res.send(err.errors)
+}
+
 exports.developmentErrors = (err, req, res, next) => {
   err.stack = err.stack || '';
   const errorDetails = {

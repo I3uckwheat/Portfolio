@@ -21,13 +21,13 @@ exports.newPost = (req, res) => {
   res.render('blog/editPost', {title: "Add Post"})
 }
 
-exports.createPost = (req, res) => {
+exports.createPost = (req, res, next) => {
   const post = (new Post(req.body)).save()
     .then((post) => {
      res.redirect(`/blog/${post.slug}`);
     })
     .catch((err) => {
-      next();
+      next(err);
     })
 }
 
