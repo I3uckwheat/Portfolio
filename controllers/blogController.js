@@ -5,17 +5,6 @@ exports.index = (req, res) => {
   res.render("blog/blogIndex")
 }
 
-exports.getPost = (req, res, next) => {
-  Post.findOne({slug: req.params.slug})
-    .then((post) => {
-      if(!post) return next();
-      res.send(post);
-    })
-    .catch((err) => {
-      next(err);
-    })
-}
-
 exports.newPost = (req, res) => {
   res.render('blog/editPost', {title: "Add Post"})
 }
@@ -30,6 +19,10 @@ exports.createPost = (req, res, next) => {
     })
 }
 
+exports.updatePost = (req, res, next) => {
+  // update the post
+}
+
 exports.editPost = (req, res, next) => {
   const slug = req.params.slug;
   const post = Post.findOne({slug})
@@ -39,6 +32,17 @@ exports.editPost = (req, res, next) => {
     })
     .catch((err) => {
       return next(err)
+    })
+}
+
+exports.getPost = (req, res, next) => {
+  Post.findOne({slug: req.params.slug})
+    .then((post) => {
+      if(!post) return next();
+      res.send(post);
+    })
+    .catch((err) => {
+      next(err);
     })
 }
 

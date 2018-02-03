@@ -1,5 +1,5 @@
 mixin postForm(post = {})
-  form(action=`/blog/new ` method="POST")
+  form(action=`/blog/new/${post.id || ''}` method="POST")
     label(for="title") Title
     input(type="text" name = "title" value=post.title required)
 
