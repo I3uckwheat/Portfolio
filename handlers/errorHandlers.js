@@ -8,8 +8,10 @@ exports.notFound = (req, res, next) => {
 
 exports.validationError = (err, req, res, next) => {
   if(!err.errors) return next(err);
-
-  res.send(err.errors)
+  for (const errorKey in err.errors) {
+    req.flash('error', err.errors[errorKey].message)
+  }
+  res.redirect('back')
 }
 
 exports.developmentErrors = (err, req, res, next) => {

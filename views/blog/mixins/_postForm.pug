@@ -1,10 +1,10 @@
 mixin postForm(post = {})
   form(action=`/blog/new ` method="POST")
     label(for="title") Title
-    input(type="text" name = "title" value=post.title)
+    input(type="text" name = "title" value=post.title required)
 
     label(for="body") Body
-    textarea(name="body")= post.body
+    textarea(name="body" required)= post.body
 
     label(for="tags") Tags
     - const tags = post.tags ? post.tags.join(' ') : ''
