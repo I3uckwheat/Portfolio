@@ -14,7 +14,6 @@ exports.getPost = (req, res, next) => {
     .catch((err) => {
       next(err);
     })
-
 }
 
 exports.newPost = (req, res) => {
