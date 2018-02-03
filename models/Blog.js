@@ -27,11 +27,12 @@ const postSchema = new mongoose.Schema({
 })
 
 postSchema.pre('save', function(next) {
-  if(!this.isModified('name')) {
+  if(!this.isModified('title')) {
     next();
     return;
   }
-  this.slug = slug(this.name);
+  this.slug = slug(this.title);
+  console.log(this.slug);
   next();
 })
 

@@ -5,14 +5,32 @@ exports.index = (req, res) => {
   res.render("blog/blogIndex")
 }
 
-exports.getBlogPost = (req, res) => {
-  res.render("blog/blogPost")
+exports.getPost = (req, res, next) => {
+  Post.findOne({slug: req.params.slug})
+    .then((post) => {
+      if(!post) return next();
+      res.send(post);
+    })
+    .catch((err) => {
+      next(err);
+    })
+
 }
 
-exports.addPost = (req, res) => {
+exports.newPost = (req, res) => {
   res.render('blog/editPost', {title: "Add Post"})
 }
 
 exports.createPost = (req, res) => {
-  res.json(req.body);
+  const post = (new Post(req.body)).save()
+    .then((post) => {
+     res.redirect(`/blog/${post.slug}`);
+    })
+    .catch((err) => {
+      next();
+    })
+}
+
+exports.updatePost = (req, res) => {
+  res.send("updatePost route")
 }
