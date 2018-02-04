@@ -1,5 +1,11 @@
 extends blogLayout
 
 block content
-  p Blogs Here
-  p In order from newest to earliest
+  .content
+    h1 Posts
+    .posts
+      while i < 10
+        .post
+          -const post = posts[i]
+          h3= post.title
+          p= post.body.split(" ").slice(0, 30).join(" ")
