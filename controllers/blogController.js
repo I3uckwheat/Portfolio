@@ -1,8 +1,16 @@
 mongoose = require("mongoose");
 const Post = mongoose.model("Post");
 
-exports.index = (req, res) => {
-  res.render("blog/blogIndex")
+exports.index = (req, res, next) => {
+  Post.find()
+    .then((posts) => {
+      if(!posts) return next();
+      res.render('blog/blogIndex', {posts})
+      // res.send(posts)
+    })
+    .catch((err) => {
+      return next(err);
+    })
 }
 
 exports.newPost = (req, res) => {
@@ -17,6 +25,11 @@ exports.createPost = (req, res, next) => {
     .catch((err) => {
       next(err);
     })
+}
+
+exports.seperateTags = (req, res, next) => {
+  req.body.tags = req.body.tags.split(',')
+  next();
 }
 
 exports.updatePost = (req, res, next) => {
@@ -49,7 +62,7 @@ exports.getPost = (req, res, next) => {
   Post.findOne({slug: req.params.slug})
     .then((post) => {
       if(!post) return next();
-      res.send(post);
+      res.render('blog/blogPost', {post});
     })
     .catch((err) => {
       next(err);
