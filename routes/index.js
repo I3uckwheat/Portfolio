@@ -17,7 +17,6 @@ router.get('/more', (req, res) => {
 router.use('/love-mikinze', express.static('public/apps/mikinze'))
 
 router.use('/blog', blog)
-
 router.use('/apps', apps)
 
 module.exports = router;
