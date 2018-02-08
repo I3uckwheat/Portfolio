@@ -1,3 +1,4 @@
 node_modules
 variables.env
-# public/apps
+public/apps/*
+!public/apps/.gitkeep
