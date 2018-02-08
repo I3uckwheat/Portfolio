@@ -1,5 +1,6 @@
 const downloadGitRepo = require('download-git-repo');
 const crypto = require('crypto');
+const fs = require('fs');
 
 exports.index = (req, res) => {
   res.render('apps/appsIndex');
@@ -28,4 +29,13 @@ exports.update = (req, res) => {
                     (err) => {if(err) console.error(err)});
 
   console.log(`Updated: ${appName}`)
+}
+
+exports.displayApps = (req, res) => {
+  const app = req.params.app;
+  res.send(app)
+}
+
+exports.add = (req, res) => {
+  res.send('add app admin page');
 }
