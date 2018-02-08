@@ -6,7 +6,18 @@ exports.index = (req, res) => {
 }
 
 exports.verifyHash = (req, res, next) => {
-  // if(req.body. = crypto.createDecipher('sha1', process.env.GITHUB_SECRET)
+  const signature = Buffer.from(req.header('x-hub-signature') || '')
+
+  const hmac = crypto.createHmac('sha1', process.env.GIT_SECRET);
+  hmac.update(JSON.stringify(req.body));
+  const digestedHmacBuffer = Buffer.from('sha1=' + hmac.digest('hex'));
+
+  if(( digestedHmacBuffer.length === signature.length ) && ( crypto.timingSafeEqual(digestedHmacBuffer, signature) )) {
+    res.status(202).send();
+    next();
+  } else {
+    res.status(401).send("Incorrect secret");
+  }
 }
 
 exports.update = (req, res) => {
@@ -15,5 +26,4 @@ exports.update = (req, res) => {
   // downloadGitRepo(`${process.env.GIT_USER}/${appName}`,
   //                 `./public/apps/${appName}`,
   //                 (err) => console.error(err));
-  res.status(202).send()
 }
