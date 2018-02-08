@@ -14,6 +14,7 @@ exports.verifyHash = (req, res, next) => {
 
   if(( digestedHmacBuffer.length === signature.length ) && ( crypto.timingSafeEqual(digestedHmacBuffer, signature) )) {
     res.status(202).send();
+    console.log("varified")
     next();
   } else {
     res.status(401).send("Incorrect secret");
@@ -23,7 +24,9 @@ exports.verifyHash = (req, res, next) => {
 exports.update = (req, res) => {
   const appName = req.params.app
   console.log(`Updating: ${appName}`)
-  // downloadGitRepo(`${process.env.GIT_USER}/${appName}`,
-  //                 `./public/apps/${appName}`,
-  //                 (err) => console.error(err));
+  downloadGitRepo(`${process.env.GIT_USER}/${appName}`,
+                  `./public/apps/${appName}`,
+                    (err) => {if(err) console.error(err)});
+
+  console.log(`Updated: ${appName}`)
 }
