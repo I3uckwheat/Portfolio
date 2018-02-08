@@ -14,7 +14,6 @@ exports.verifyHash = (req, res, next) => {
 
   if(( digestedHmacBuffer.length === signature.length ) && ( crypto.timingSafeEqual(digestedHmacBuffer, signature) )) {
     res.status(202).send();
-    console.log("varified")
     next();
   } else {
     res.status(401).send("Incorrect secret");
