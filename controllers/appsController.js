@@ -24,8 +24,9 @@ exports.verifyHash = (req, res, next) => {
 exports.update = (req, res) => {
   const appName = req.params.app
   console.log(`Updating: ${appName}`)
+  console.log(appName)
   downloadGitRepo(`${process.env.GIT_USER}/${appName}`,
-                  `./public/apps/${appName}`,
+                  `./public/apps/${appName.toLowerCase()}`,
                     (err) => {if(err) console.error(err)});
 
   console.log(`Updated: ${appName}`)
