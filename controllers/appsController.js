@@ -1,4 +1,6 @@
 const downloadGitRepo = require('download-git-repo');
+const mongoose = require('mongoose');
+const App = mongoose.model('App');
 const crypto = require('crypto');
 const fs = require('fs');
 

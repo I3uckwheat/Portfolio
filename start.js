@@ -8,7 +8,8 @@ mongoose.connection.on('error', (err) => {
   console.error(err.message)
 });
 
-require("./models/Blog.js")
+require("./models/Blog.js");
+require("./models/App.js");
 
 const app = require('./app');
 app.set('port', process.env.PORT || 7777);
