@@ -20,3 +20,5 @@ const appSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+
+module.exports = mongoose.model('App', appSchema)

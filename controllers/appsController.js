@@ -23,15 +23,37 @@ exports.verifyHash = (req, res, next) => {
   }
 }
 
-exports.update = (req, res) => {
+exports.update = (req, res, next) => {
   const appName = req.params.app
+  const appPath = `./public/apps/${appName.toLowerCase()}`
   console.log(`Updating: ${appName}`)
-  console.log(appName)
-  downloadGitRepo(`${process.env.GIT_USER}/${appName}`,
-                  `./public/apps/${appName.toLowerCase()}`,
-                    (err) => {if(err) console.error(err)});
+  saveAppInfoToDB(req.body, appPath)
+    .then((appInfo) => {
+      downloadGitRepo(`${process.env.GIT_USER}/${appName}`, appPath, (err) => {if(err) console.error(err)});
 
-  console.log(`Updated: ${appName}`)
+      console.log(`Updated: ${appName}`)
+      })
+      .catch(err => next(err));
+}
+
+function saveAppInfoToDB(appInfo, localPath){
+  return new Promise((resolve, reject) => {
+    const appName = appInfo.repository.name;
+    const formattedAppInfo = {
+      githubURL: appInfo.repository.html_url,
+      lastUpdated: Date.parse(appInfo.repository.updated_at),
+      appName,
+      localPath
+    }
+
+    App.findOneAndUpdate(
+      {appName: appName},
+      formattedAppInfo,
+      {new: true, upsert: true, runValidators: true}
+    )
+    .then(appInfo => resolve(appInfo))
+    .catch(err => reject(err));
+  });
 }
 
 exports.displayApps = (req, res) => {
