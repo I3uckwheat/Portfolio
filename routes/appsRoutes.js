@@ -6,7 +6,9 @@ router.get('/', appsController.index);
 
 router.post('/update/:app', appsController.verifyHash, appsController.update);
 
-router.use('/Snake-JS', express.static('public/apps/Snake-JS'));
+router.get('/add', appsController.add);
+
+router.use(express.static('public/apps/'));
 // router.use('/AppName', express.static('public/apps/AppName'));
 
 module.exports = router
