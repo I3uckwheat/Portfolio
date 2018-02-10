@@ -47,7 +47,7 @@ function saveAppInfoToDB(appInfo, localPath){
     }
 
     App.findOneAndUpdate(
-      {appName: appName},
+      {appName},
       formattedAppInfo,
       {new: true, upsert: true, runValidators: true}
     )
