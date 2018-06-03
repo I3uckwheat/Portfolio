@@ -2,16 +2,20 @@ mongoose = require("mongoose");
 const Post = mongoose.model("Post");
 
 exports.index = (req, res, next) => {
-  Post.find()
-    .then((posts) => {
-      if(!posts) return next();
-      res.render('blog/blogIndex', {posts})
-      // res.send(posts)
-    })
-    .catch((err) => {
-      return next(err);
-    })
-}
+  res.send("coming soon");
+};
+
+// exports.index = (req, res, next) => {
+//   Post.find()
+//     .then((posts) => {
+//       if(!posts) return next();
+//       res.render('blog/blogIndex', {posts})
+//       // res.send(posts)
+//     })
+//     .catch((err) => {
+//       return next(err);
+//     })
+// }
 
 exports.newPost = (req, res) => {
   res.render('blog/editPost', {title: "Add Post"})
