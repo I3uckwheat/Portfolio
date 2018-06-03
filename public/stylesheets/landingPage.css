@@ -1,34 +1,58 @@
-body {
-  background-color: #1b2a41
+header {
+  height: 100vh;
+  background-color: #222126;
 }
 
-.title{
-  color: white;
-  width: 95%;
-  height: 70%;
-  text-align: center;
-  font-size: 300%;
-  margin-top: 10%;
-  font-family: 'Old Standard TT', serif;}
-
-#name{
-  font-size: 100%;
-  font-family: 'Satisfy', cursive;
+.headerText {
+  color: #F2F2F0;
+  position: absolute;
+  bottom: 30%;
+  left: 15%;
+  font-family: 'Playfair Display', serif;
 }
 
-a{
-  color: #ccc9dc;
+.headerText h1 {
+  font-size: 64px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
-.links{
-  text-align: center;
-  font-size: 200%;
+.headerText h2 {
+  color: #B1B0B7;
+  font-size: 24px;
 }
 
+section.content {
+  height: 100vh;
+  font-size: 20px;
+  font-family: 'Arimo', sans-serif;
+}
 
+article.about {
+  position: relative;
+  top: 20%;
+  left: 10%;
+  width: 50%;
+}
 
-/* Fonts to use
-font-family: 'Satisfy', cursive;
+section.about-me {
+  margin-bottom: 30px;
+}
 
-font-family: 'Old Standard TT', serif;
-*/
+section.information ul {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+section.information ul li {
+  font-weight: normal;
+}
+
+section.information ul li::before {
+  content: "- ";
+}
+
+section.information a {
+  color: #2841A6;
+  text-decoration: none;
+}
