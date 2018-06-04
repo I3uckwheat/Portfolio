@@ -1,0 +1,43 @@
+body {
+  background-color: #F2F2F0;
+  font-family: 'Playfair Display', serif;
+}
+
+header {
+  width: 100vw;
+  background-color: #222126;
+  color: #F2F2F0;
+}
+
+header nav {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  color: white;
+
+}
+
+nav ul li:after {
+  padding: 10px;
+  content: '|'
+}
+
+nav ul li:last-child:after {
+  content: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+header .title h1 {
+  font-size: 3em;
+  padding: 80px 0 50px 20px;
+}
+

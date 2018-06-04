@@ -1,9 +1,17 @@
-doctype html
-html
-  head
-    title #{title}
-    link(res="stylesheet", href="/dist/index.css")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
+extends head
 
-    .content
-      block content
+block stylesheets
+  link(rel="stylesheet", href="/stylesheets/layout.css")
+
+block body
+  header
+    nav
+      ul
+        li: a(href='/') home
+        li: a(href='/blog') blog
+        li: a(href='/projects') projects
+    section.title
+      h1 #{title}
+
+  .content
+    block content

@@ -20,12 +20,18 @@ header {
 .headerText h2 {
   color: #B1B0B7;
   font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.headerText p {
+  color: #ffffff2b;
 }
 
 section.content {
   height: 100vh;
-  font-size: 20px;
+  font-size: 19px;
   font-family: 'Arimo', sans-serif;
+  line-height: 23px;
 }
 
 article.about {
