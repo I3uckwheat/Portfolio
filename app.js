@@ -3,7 +3,7 @@ const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const routes = require('./routes/index');
 const helpers = require('./helpers');
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
   res.locals.flashes = req.flash();
   res.locals.currentPath = req.path;
   next();
-})
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

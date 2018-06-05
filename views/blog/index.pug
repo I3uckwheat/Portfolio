@@ -1,0 +1,24 @@
+extends ../layout
+
+block append stylesheets
+  link(rel='stylesheet', href='/stylesheets/blog.css')
+
+block content
+  section.about
+    p this is where i write stuff about programming, javascript,
+    p and other web development related stuff.
+    p check it out, you might find something useful.
+  ul.articles
+    section.month: date june 2018
+      li: a(href='/blog')
+        h2 to, and from vscode
+        h3 some opinions on code editors and my suggestions
+      li: a(href='/blog')
+        h2  Title
+        h3 this is the tagline for the article to get an idea of what it is about
+      li: a(href='/blog')
+        h2  Title
+        h3 this is the tagline for the article to get an idea of what it is about
+      li: a(href='/blog')
+        h2  Title
+        h3 this is the tagline for the article to get an idea of what it is about

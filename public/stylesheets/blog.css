@@ -1,0 +1,29 @@
+section.about {
+  margin-top: 10vh;
+  margin-left: 10vw;
+}
+
+.articles {
+  margin-top: 25px;
+  margin-left: 10vw;
+}
+
+section.month {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+section.month li {
+  margin-top: 15px;
+  font-weight: normal;
+  margin-left: 15px;
+}
+
+section.month li a {
+  text-decoration: none;
+}
+
+section.month li h2 {
+  font-weight: 400;
+  color: black;
+}

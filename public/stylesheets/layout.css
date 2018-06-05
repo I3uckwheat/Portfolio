@@ -1,12 +1,12 @@
 body {
   background-color: #F2F2F0;
-  font-family: 'Playfair Display', serif;
 }
 
 header {
   width: 100vw;
   background-color: #222126;
   color: #F2F2F0;
+  font-family: 'Playfair Display', serif;
 }
 
 header nav {
@@ -17,8 +17,7 @@ header nav {
 
 nav ul li {
   display: inline-block;
-  color: white;
-
+  color: #F2F2F0;
 }
 
 nav ul li:after {
@@ -41,3 +40,6 @@ header .title h1 {
   padding: 80px 0 50px 20px;
 }
 
+.content {
+  font-family: 'Arimo', sans-serif;
+}

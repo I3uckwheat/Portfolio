@@ -1,36 +1,40 @@
 header {
   height: 100vh;
-  background-color: #222126;
 }
 
-.headerText {
+header .headerText {
   color: #F2F2F0;
   position: absolute;
   bottom: 30%;
   left: 15%;
-  font-family: 'Playfair Display', serif;
 }
 
-.headerText h1 {
+header .headerText h1 {
   font-size: 64px;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
-.headerText h2 {
+header .headerText h2 {
   color: #B1B0B7;
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-.headerText p {
+header .headerText p {
   color: #ffffff2b;
+}
+
+header nav {
+  position: absolute;
+  bottom: 27%;
+  left: 15%;
+  top: auto;
 }
 
 section.content {
   height: 100vh;
   font-size: 19px;
-  font-family: 'Arimo', sans-serif;
   line-height: 23px;
 }
 

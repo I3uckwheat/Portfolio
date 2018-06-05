@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Post = mongoose.model("Post");
 
 exports.index = (req, res, next) => {
-  res.send("coming soon");
+  res.render('blog/index', {title: 'plaintext'});
 };
 
 // exports.index = (req, res, next) => {

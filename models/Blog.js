@@ -24,7 +24,7 @@ const postSchema = new mongoose.Schema({
     default: Date.now
   },
   tags: [String],
-})
+});
 
 postSchema.pre('save', function(next) {
   if(!this.isModified('title')) {

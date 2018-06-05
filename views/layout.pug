@@ -1,15 +1,9 @@
 extends head
 
-block stylesheets
-  link(rel="stylesheet", href="/stylesheets/layout.css")
-
 block body
   header
     nav
-      ul
-        li: a(href='/') home
-        li: a(href='/blog') blog
-        li: a(href='/projects') projects
+      include navList.pug
     section.title
       h1 #{title}
 
