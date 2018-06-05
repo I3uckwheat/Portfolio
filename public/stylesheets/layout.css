@@ -3,7 +3,7 @@ body {
 }
 
 header {
-  width: 100vw;
+  height: 197px;
   background-color: #222126;
   color: #F2F2F0;
   font-family: 'Playfair Display', serif;
@@ -12,7 +12,7 @@ header {
 header nav {
   position: relative;
   top: 20px;
-  left: 20px;
+  margin-left: 20px;
 }
 
 nav ul li {
@@ -40,6 +40,44 @@ header .title h1 {
   padding: 80px 0 50px 20px;
 }
 
-.content {
+.content-container {
   font-family: 'Arimo', sans-serif;
+  font-size: 19px;
+  line-height: 20px;
 }
+
+.content {
+  padding-left: 12%;
+  padding-top: 90px;
+}
+
+.content article.about {
+  margin-bottom: 40px;
+}
+
+.content ul {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.content li {
+  font-weight: normal;
+}
+
+.content li a:hover,
+.content li a:active {
+  color: inherit;
+  font-weight: bold;
+}
+
+.content ul li:before {
+  color: black;
+  font-weight: normal;
+  content: "- ";
+}
+
+.content li a {
+  text-decoration: none;
+  color: #2841A6;
+}
+

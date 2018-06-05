@@ -1,68 +1,36 @@
 header {
+  position: relative;
   height: 100vh;
 }
 
-header .headerText {
-  color: #F2F2F0;
+header .header-content {
   position: absolute;
-  bottom: 30%;
-  left: 15%;
+  bottom: 20%;
+  margin-left: 10%;
+  color: #F2F2F0;
 }
 
-header .headerText h1 {
+header .header-content h1 {
   font-size: 64px;
   font-weight: 500;
   margin-bottom: 10px;
 }
 
-header .headerText h2 {
+header .header-content h2 {
   color: #B1B0B7;
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-header .headerText p {
+header .header-content p {
   color: #ffffff2b;
+  margin-bottom: 22px;
 }
 
 header nav {
-  position: absolute;
-  bottom: 27%;
-  left: 15%;
-  top: auto;
+  position: static;
+  margin-left: auto;
 }
-
-section.content {
+.content-container {
   height: 100vh;
-  font-size: 19px;
-  line-height: 23px;
-}
-
-article.about {
-  position: relative;
-  top: 20%;
-  left: 10%;
-  width: 50%;
-}
-
-section.about-me {
-  margin-bottom: 30px;
-}
-
-section.information ul {
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-section.information ul li {
-  font-weight: normal;
-}
-
-section.information ul li::before {
-  content: "- ";
-}
-
-section.information a {
-  color: #2841A6;
-  text-decoration: none;
 }

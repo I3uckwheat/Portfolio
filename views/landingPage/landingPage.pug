@@ -1,24 +1,24 @@
-extends ../head
+extends ../layout
 
 block stylesheets
   link(rel="stylesheet", href="/stylesheets/landingPage.css")
 
 block body
   header
-    .headerText
+    .header-content
       h1 Briggs Elsperger
       h2 Fullstack Javascript Developer
       //- p#quote
       p "simple broad strokes are better than clumsy fine strokes" -Cornelius Soon
-    nav
-      include ../navList.pug
-  section.content
-    article.about
-      section.about-me
-        p hi, i'm briggs.
-        p i like long walks in the rain and javascript
-        p i make respoinsive and clean websites
-        p and other javascript applications
+      nav
+        include ../navList.pug
+  .content-container
+    section.content
+      article.about
+          p hi, i'm briggs.
+          p i like long walks in the rain and javascript
+          p i make respoinsive and clean websites
+          p and other javascript applications
 
       section.information
         ul.me me
@@ -35,4 +35,4 @@ block body
           li: a(href='mailto:example@example.com' target='_top') example@example.com
           li 555-555-5555
           li contact form
-  //- script(src='/scripts/src/landingPage.js')
+    //- script(src='/scripts/src/landingPage.js')
