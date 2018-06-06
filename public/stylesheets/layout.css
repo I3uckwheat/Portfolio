@@ -81,3 +81,12 @@ header .title h1 {
   color: #2841A6;
 }
 
+.content form label,
+.content form input {
+  display: block;
+}
+
+/* todo - make consistent with line spacing above */
+.content form input {
+  margin-bottom: 20px;
+}
