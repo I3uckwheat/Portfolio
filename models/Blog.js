@@ -1,29 +1,27 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+
 const slug = require("slugs");
 
 const postSchema = new mongoose.Schema({
+  fileName: {
+    type: String,
+    required: 'You must have a filename'
+  },
   title: {
     type: String,
-    trim: true,
-    required: "You must enter a post title"
+    required: 'Post must have a title'
   },
   slug: String,
   body: {
     type: String,
-    trim: true,
-    required: "You must enter a post body"
-  },
-  author: {
-    type: String,
-    required: true,
-    default: "Briggs Elsperger"
+    required: "You must have HTML submitted"
   },
   created: {
     type: Date,
     default: Date.now
   },
-  tags: [String],
+  tags: [String]
 });
 
 postSchema.pre('save', function(next) {
@@ -32,8 +30,8 @@ postSchema.pre('save', function(next) {
     return;
   }
   this.slug = slug(this.title);
-  console.log(this.slug);
+  console.log('slug: ', this.slug);
   next();
-})
+});
 
 module.exports = mongoose.model("Post", postSchema);
