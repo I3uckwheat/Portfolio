@@ -5,30 +5,43 @@ const fs = require('fs-extra');
 
 const Post = mongoose.model("Post");
 
-exports.index = (req, res, next) => {
-  res.render('blog/index', {title: 'plaintext'});
+exports.index = async (req, res, next) => {
+  try{
+    const dates = await Post.aggregate([
+      { $group: {
+        _id: { year: { $year: '$date' }, month: { $month: '$date' } },
+        posts: { $push: '$$ROOT' }
+      }},
+      { $sort: {'_id.year': -1, '_id.month': -1 } },
+      { $project: { _id: 0, posts: 1, date: { year: '$_id.year', month: '$_id.month' } } }
+    ]).exec();
+
+    res.render('blog/index', {title: 'plaintext', dates});
+  } catch(err) {
+    console.log(err);
+    next(err);
+  }
 };
 
 exports.getPost = (req, res, next) => {
-  // get blog post and send to view
-  res.send("showPost route");
+  res.send('TESTING');
+  // res.render(blog/blog, {title: 'TEST'})
 };
 
 exports.updatePosts = async (req, res, next) => { // markdown -> html and store in DB
   try {
     const [preRenderedPosts, renderedPosts] = await Promise.all([
-      fs.readdir('../Portfolio/public/blog'),
+      fs.readdir('../Portfolio/public/blogPosts'),
       Post.find({}, {fileName: true})
     ]);
     const renderedPostNames = renderedPosts.map(post => post.fileName);
 
     await Promise.all(preRenderedPosts.map(async postName => {
-      if(!renderedPostNames.includes(postName)) {
-        const renderedPost = await renderPost(postName);
-        return storePost(renderedPost);
+      if(renderedPostNames.includes(postName)) {
+        console.log('skipping: ', postName);
+        return null;
       }
-      console.log('skipping: ', postName);
-      return null;
+      return storePost(await renderPost(postName));
     }));
 
     res.send('<h1>Posts Updated</h1>');
@@ -44,8 +57,8 @@ exports.updatePosts = async (req, res, next) => { // markdown -> html and store 
 async function renderPost(postName) { // todo - handle errors
   const mdConverter = new showdown.Converter();
   const [markDown, meta] = await Promise.all([
-    fs.readFile(`../Portfolio/public/blog/${postName}/${postName}.md`),
-    fs.readFile(`../Portfolio/public/blog/${postName}/meta.json`)
+    fs.readFile(`../Portfolio/public/blogPosts/${postName}/${postName}.md`),
+    fs.readFile(`../Portfolio/public/blogPosts/${postName}/meta.json`)
   ]);
   const htmlString = mdConverter.makeHtml(markDown.toString());
   const metaData = JSON.parse(meta);

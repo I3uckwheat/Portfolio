@@ -5,9 +5,11 @@ const blogController = require('../controllers/blogController');
 const authController = require('../controllers/authController');
 
 router.get('/', blogController.index); // Shows all blog posts
-router.post('/update', blogController.updatePosts); // parses markdown files and updates in DB
-router.get('/update', blogController.updatePosts); // parses markdown files and updates in DB
-router.get('/:slug', blogController.getPost); // shows one post
-// router.get('/:slug/edit', blogController.editPost); // Shows edit page (new blog post page with filled data)
+router.get('/:slug', blogController.getPost); // get's post and shows it to client
+router.get('/update', blogController.updatePosts); // REMOVE TEST ROUTE
+router.post('/update',
+            authController.verifyWebhook, // TODO - setup webhook
+            blogController.updatePosts); // parses markdown files and updates in DB
+
 
 module.exports = router;

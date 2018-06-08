@@ -17,7 +17,7 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: "You must have HTML submitted"
   },
-  created: {
+  date: {
     type: Date,
     default: Date.now
   },

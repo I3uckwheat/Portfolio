@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/more', (req, res) => {
-    res.render('learnMore', {title: "Learn More"});
+  res.render('learnMore', {title: "Learn More"});
 });
 
 router.use('/love-mikinze', express.static('public/apps/mikinze'));
