@@ -11,13 +11,9 @@ block content
 
   section.information
     ol.articles
-      li: ul #[time june 2018]
-        li
-          a(href='/blog') to, and from vscode
-        li
-          a(href='/blog') writing a lesson
-      li: ul #[time may 2018]
-        li
-          a(href='/blog') to, and from vscode
-        li
-          a(href='/blog') writing a lesson
+      each date in dates
+        - const categoryDate = new Date(date.date.year, date.date.month)
+        li: ul #[time #{categoryDate.toLocaleDateString('en-US', {month: 'long', year: 'numeric'})}]
+          each post in date.posts
+            li
+              a(href=`blog/${post.slug}`)= post.title

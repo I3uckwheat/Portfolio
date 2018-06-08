@@ -23,9 +23,9 @@ exports.index = async (req, res, next) => {
   }
 };
 
-exports.getPost = (req, res, next) => {
-  res.send('TESTING');
-  // res.render(blog/blog, {title: 'TEST'})
+exports.getPost = async (req, res, next) => {
+  const post = await Post.findOne({slug: req.params.slug});
+  res.render('blog/blog', {title: post.title, post});
 };
 
 exports.updatePosts = async (req, res, next) => { // markdown -> html and store in DB
