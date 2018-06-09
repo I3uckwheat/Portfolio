@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-const showdown = require('showdown');
-const path = require('path');
-const fs = require('fs-extra');
+const postUpdateHelper = require('../helpers/postUpdateHelper.js');
 
 const Post = mongoose.model("Post");
 
@@ -28,50 +26,13 @@ exports.getPost = async (req, res, next) => {
   res.render('blog/blog', {title: post.title, post});
 };
 
-exports.updatePosts = async (req, res, next) => { // markdown -> html and store in DB
-  try {
-    const [preRenderedPosts, renderedPosts] = await Promise.all([
-      fs.readdir('../Portfolio/public/blogPosts'),
-      Post.find({}, {fileName: true})
-    ]);
-    const renderedPostNames = renderedPosts.map(post => post.fileName);
-
-    await Promise.all(preRenderedPosts.map(async postName => {
-      // if(renderedPostNames.includes(postName)) { // TODO - find way to change if file is updated
-      //   console.log('skipping: ', postName);
-      //   return null;
-      // }
-      return storePost(await renderPost(postName));
-    }));
-
-    console.log('Posts Updated', '\n\n')
-    res.send('<h1>Posts Updated</h1>');
-  } catch(err) {
-    console.log('\n\n Posts Failed to Update \n');
-    console.error(err);
-    console.log('\n\n');
-
-    res.send('<h1>Posts Updating Failed</h1>');
-  }
+exports.downloadPosts = async (req, res, next) => {
+  console.log('download Posts');
+  next();
 };
 
-async function renderPost(postName) { // todo - handle errors
-  const mdConverter = new showdown.Converter({strikethrough: true, simpleLIneBreaks: true, tables: true});
-  const [markDown, meta] = await Promise.all([
-    fs.readFile(`../Portfolio/public/blogPosts/${postName}/${postName}.md`),
-    fs.readFile(`../Portfolio/public/blogPosts/${postName}/meta.json`)
-  ]);
-  const htmlString = mdConverter.makeHtml(markDown.toString());
-  const metaData = JSON.parse(meta);
-
-  return {
-    ...metaData,
-    fileName: postName,
-    body: htmlString,
-  };
-}
-
-async function storePost(renderedPost) { // TODO - handle errors, use upsert instead of save 
-  await Post.findOneAndUpdate({fileName: renderedPost.fileName}, {upsert: true});
-  console.log('Rendered: ', renderedPost.title);
-}
+exports.updatePosts = async (req, res, next) => { // markdown -> html and store in DB
+  const result = await postUpdateHelper.updatePosts(mongoose);
+  if (result === 'success') return res.send('<h1>Posts Updated</h1>');
+  return res.send('<h1>Posts Failed To Update</h1>');
+};

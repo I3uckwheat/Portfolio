@@ -6,7 +6,6 @@ const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const routes = require('./routes/index');
-const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
 
 
@@ -28,7 +27,6 @@ app.use(session({
 app.use(flash());
 
 app.use((req, res, next) => {
-  res.locals.h = helpers;
   res.locals.flashes = req.flash();
   res.locals.currentPath = req.path;
   next();

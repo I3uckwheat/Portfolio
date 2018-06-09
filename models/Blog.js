@@ -33,4 +33,12 @@ postSchema.pre('save', function(next) {
   next();
 });
 
+postSchema.post('findOneAndUpdate', function(result) {
+  console.log('result:   \n', result);
+  result.slug = slug(result.title);
+  result.save((err) => {
+    if(err) console.error(err);
+  });
+});
+
 module.exports = mongoose.model("Post", postSchema);
