@@ -30,7 +30,6 @@ postSchema.pre('save', function(next) {
     return;
   }
   this.slug = slug(this.title);
-  console.log('slug: ', this.slug);
   next();
 });
 

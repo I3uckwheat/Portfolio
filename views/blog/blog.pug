@@ -1,4 +1,12 @@
 extends ../layout
 
+block stylesheets
+  link(rel="stylesheet", href='/stylesheets/blog.css')
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css")
+
+block scripts
+  script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js")
+  script hljs.initHighlightingOnLoad();
+
 block content
  article#blog-post !{post.body}

@@ -47,12 +47,25 @@ header .title h1 {
 }
 
 .content {
-  padding-left: 12%;
+  margin: auto;
+  max-width: 70%;
+  padding-bottom: 90px;
   padding-top: 90px;
 }
 
 .content article.about {
   margin-bottom: 40px;
+}
+
+.content a {
+  text-decoration: none;
+  color: #2841A6;
+}
+
+.content a:hover,
+.content a:active {
+  color: inherit;
+  font-weight: bold;
 }
 
 .content ul {
@@ -64,21 +77,10 @@ header .title h1 {
   font-weight: normal;
 }
 
-.content li a:hover,
-.content li a:active {
-  color: inherit;
-  font-weight: bold;
-}
-
-.content ul li:before {
+.content ul > li:before {
   color: black;
   font-weight: normal;
   content: "- ";
-}
-
-.content li a {
-  text-decoration: none;
-  color: #2841A6;
 }
 
 .content form label,
@@ -86,7 +88,7 @@ header .title h1 {
   display: block;
 }
 
-/* todo - make consistent with line spacing above */
+/* TODO - make consistent with line spacing above */
 .content form input {
   margin-bottom: 20px;
 }

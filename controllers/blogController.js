@@ -37,13 +37,14 @@ exports.updatePosts = async (req, res, next) => { // markdown -> html and store 
     const renderedPostNames = renderedPosts.map(post => post.fileName);
 
     await Promise.all(preRenderedPosts.map(async postName => {
-      if(renderedPostNames.includes(postName)) {
-        console.log('skipping: ', postName);
-        return null;
-      }
+      // if(renderedPostNames.includes(postName)) { // TODO - find way to change if file is updated
+      //   console.log('skipping: ', postName);
+      //   return null;
+      // }
       return storePost(await renderPost(postName));
     }));
 
+    console.log('Posts Updated', '\n\n')
     res.send('<h1>Posts Updated</h1>');
   } catch(err) {
     console.log('\n\n Posts Failed to Update \n');
@@ -55,7 +56,7 @@ exports.updatePosts = async (req, res, next) => { // markdown -> html and store 
 };
 
 async function renderPost(postName) { // todo - handle errors
-  const mdConverter = new showdown.Converter();
+  const mdConverter = new showdown.Converter({strikethrough: true, simpleLIneBreaks: true, tables: true});
   const [markDown, meta] = await Promise.all([
     fs.readFile(`../Portfolio/public/blogPosts/${postName}/${postName}.md`),
     fs.readFile(`../Portfolio/public/blogPosts/${postName}/meta.json`)
@@ -70,6 +71,7 @@ async function renderPost(postName) { // todo - handle errors
   };
 }
 
-function storePost(renderedPost) { // todo - handle errors
-  const post = new Post(renderedPost).save();
+async function storePost(renderedPost) { // TODO - handle errors, use upsert instead of save 
+  await Post.findOneAndUpdate({fileName: renderedPost.fileName}, {upsert: true});
+  console.log('Rendered: ', renderedPost.title);
 }
