@@ -12,7 +12,6 @@ mongoose.connection.on('error', (err) => {
 });
 
 require("./models/Blog.js");
-require("./models/App.js");
 
 if(!fs.existsSync('./public/blogPosts/')) {
   console.log('initializing Blogs');

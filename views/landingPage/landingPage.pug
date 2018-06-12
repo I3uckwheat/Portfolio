@@ -8,10 +8,12 @@ block body
     .header-content
       h1 Briggs Elsperger
       h2 Fullstack Javascript Developer
-      //- p#quote
-      p "simple broad strokes are better than clumsy fine strokes" -Cornelius Soon
+      p#quote.faint-text "simple broad strokes are better than clumsy fine strokes" -Cornelius Soon
       nav
         include ../navList.pug
+    .center-text.faint-text
+      p#scroll-down hey, there's stuff down here too
+      svg(width='24' height='24' viewBox='0 0 1792 1792' xmlns='http://www.w3.org/2000/svg'): path(d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z")
   .content-container
     section.content
       article.about
@@ -28,6 +30,7 @@ block body
         ul.projects projects
           li: a(href='https://gfr.briggselsperger.com') groton fire department
           li: a(href='https://github.com/I3uckwheat/Snake-JS') snakeJS
+          li: a(href='/projects') more
         ul.publications publications
           li: a(href='/blog') plaintext blog
           li: a(href='/publications') list of publications
@@ -35,4 +38,4 @@ block body
           li: a(href='mailto:example@example.com' target='_top') example@example.com
           li 555-555-5555
           li contact form
-    //- script(src='/scripts/src/landingPage.js')
+    script(src='/scripts/src/landingPage.js')
