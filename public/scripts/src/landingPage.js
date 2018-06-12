@@ -1,12 +1,20 @@
-const quote = document.getElementById('quote');
+const centerText = document.querySelector('.center-text');
+function scrollHandler(event) {
+  if (window.pageYOffset > 150) centerText.classList.add('hide');
+  if (window.pageYOffset < 150) document.querySelector('.center-text').classList.remove('hide');
+}
 
-updateQuote(quote);
+window.onscroll = throttle(scrollHandler, 55);
 
-function updateQuote(element) {
-  fetch('http://quotes.stormconsultancy.co.uk/random.json', {mode: 'cors'})
-    .then(response => {
-      return response.json();
-    })
-    .then(response => console.log(response))
-    .catch(console.error);
+function throttle(fn, limit = 250) {
+  let wait = false;
+  return () => {
+    if (!wait) {
+      fn.call();
+      wait = true;
+      setTimeout(() => {
+        ait = false;
+      }, limit);
+    }
+  };
 }

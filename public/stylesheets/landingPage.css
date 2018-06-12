@@ -5,7 +5,7 @@ header {
 
 header .header-content {
   position: absolute;
-  bottom: 20%;
+  bottom: 26%;
   margin-left: 10%;
   color: #F2F2F0;
 }
@@ -22,15 +22,39 @@ header .header-content h2 {
   margin-bottom: 10px;
 }
 
-header .header-content p {
-  color: #ffffff2b;
+header .header-content #quote {
   margin-bottom: 22px;
+}
+
+header .faint-text {
+  color: #ffffff2b;
+  fill: #ffffff2b;
+}
+
+header #scroll-down {
+  margin-bottom: 5px;
+}
+
+header .center-text {
+  transition: all 0.5s ease;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+header .center-text.hide {
+  color: #222126;
+  fill: #222126;
 }
 
 header nav {
   position: static;
   margin-left: auto;
 }
+
 .content-container {
   height: 100vh;
 }
+
