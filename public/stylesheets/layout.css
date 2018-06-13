@@ -1,5 +1,10 @@
 body {
   background-color: #F2F2F0;
+  color: #222126;
+}
+
+h2 {
+  font-size: 1.2em;
 }
 
 header {
@@ -83,12 +88,22 @@ header .title h1 {
   content: "- ";
 }
 
-.content form label,
-.content form input {
-  display: block;
+.content li > article {
+  margin-left: 20px;
+  max-width: 600px;
 }
 
-/* TODO - make consistent with line spacing above */
-.content form input {
-  margin-bottom: 20px;
+.content img {
+  border: 1px solid #222126;
+  margin: 20px 20px 20px 0;
+  max-height: 120px;
+  display: inline-block;
+}
+
+.content li > a > * {
+  display: inline;
+}
+
+.content .projects li {
+  margin-bottom: 30px;
 }
