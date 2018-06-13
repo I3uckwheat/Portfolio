@@ -13,7 +13,7 @@ function throttle(fn, limit = 250) {
       fn.call();
       wait = true;
       setTimeout(() => {
-        ait = false;
+        wait = false;
       }, limit);
     }
   };
