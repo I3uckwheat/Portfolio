@@ -1,5 +1,5 @@
 node_modules
 variables.env
-public/blogPosts/*
+public/blogPosts
 public/blogPosts.bak/
 .#*
