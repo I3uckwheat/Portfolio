@@ -1,60 +1,66 @@
-header {
-  position: relative;
-  height: 100vh;
+.left, .right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
 
-header .header-content {
+.left {
+  background-color: #222126;
+  left: 0;
+  right: 40%;
+}
+
+.left .text {
   position: absolute;
-  bottom: 26%;
-  margin-left: 10%;
+  text-align: right;
+  bottom: 40%;
+  right: 0;
+  margin-right: 40px;
   color: #F2F2F0;
 }
 
-header .header-content h1 {
-  font-size: 64px;
-  font-weight: 500;
+.left h1 {
+  font-size: 66px;
+  font-weight 500;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
-header .header-content h2 {
+.left h2 {
   color: #B1B0B7;
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  margin-bottom: 12px;
 }
 
-header .header-content #quote {
+.left #quote {
   margin-bottom: 22px;
-}
-
-header .faint-text {
   color: #ffffff2b;
-  fill: #ffffff2b;
 }
 
-header #scroll-down {
-  margin-bottom: 5px;
+.right {
+  font-family: lato;
+  background-color: #F2F2F0;
+  color: #2221268a;
+  left: 60%;
+  right: 0;
+  overflow: hidden;
 }
 
-header .center-text {
-  transition: all 0.5s ease;
+.strong {
+  color: #222126e6;
+  font-weight: bold;
+}
+
+.right article.about {
   position: absolute;
-  width: 100%;
-  bottom: 0;
-  text-align: center;
-  font-size: 1.1em;
+  top: 50%;
+  transform: translate(0%, -50%);
+  font-size: 1.5em;
+  width: 78%;
+  margin-left: 45px;
 }
 
-header .center-text.hide {
-  color: #222126;
-  fill: #222126;
-}
-
-header nav {
-  position: static;
-  margin-left: auto;
-}
-
-.content-container {
-  height: 100vh;
+.right article.about p {
+  margin-bottom: 40px;
 }
 
