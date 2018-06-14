@@ -3,7 +3,21 @@ body {
   color: #222126;
 }
 
-h2 {
+p {
+  line-height: 1.4em;
+}
+
+h2, h3, h4 {
+  font-size: 2em;
+  font-family: 'Lato';
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+h4 {
   font-size: 1.2em;
 }
 
@@ -40,6 +54,11 @@ nav a {
   font-size: 1.2em;
 }
 
+nav a:hover,
+nav a:active {
+  text-decoration: underline;
+}
+
 header .title h1 {
   font-size: 3em;
   padding: 80px 0 50px 20px;
@@ -59,7 +78,7 @@ header .title h1 {
 }
 
 .content article.about {
-  margin-bottom: 40px;
+  margin-bottom: 45px;
 }
 
 .content a {
@@ -70,7 +89,8 @@ header .title h1 {
 .content a:hover,
 .content a:active {
   color: inherit;
-  font-weight: bold;
+  /* font-weight: bold; */
+  text-decoration: underline;
 }
 
 .content ul {
@@ -89,21 +109,61 @@ header .title h1 {
 }
 
 .content li > article {
-  margin-left: 20px;
-  max-width: 600px;
+  margin-top: 30px;
+  max-width: 780px;
 }
 
 .content img {
-  border: 1px solid #222126;
-  margin: 20px 20px 20px 0;
+  border: 1px solid #22212647;
+  margin: -10px 20px 25px 0;
   max-height: 120px;
   display: inline-block;
 }
 
-.content li > a > * {
+
+.content li > a > h2,
+.content li > h2,
+.content li h3,
+.content li h4 {
   display: inline;
 }
 
-.content .projects li {
-  margin-bottom: 30px;
+.content .project-showcase {
+  line-height: 1.4em;
+}
+
+.content .project-showcase h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.content .project-showcase > li {
+  margin-bottom: 80px;
+}
+
+.content .project-showcase li:before {
+  content: none;
+}
+
+.content .project-showcase > li {
+  padding-top: 13px;
+  border-top: 1px solid #22212647;
+  max-width: 780px;
+}
+
+.other ul {
+  margin-top: 20px;
+}
+
+.other li article {
+  margin-top: 13px;
+}
+
+.other .links > *:after {
+  color: #222126;
+  content: ' | ';
+}
+
+.other .links > *:last-child:after {
+  content: none;
 }
