@@ -10,6 +10,10 @@
   right: 40%;
 }
 
+.left nav {
+  font-size: 1.2em;
+}
+
 .left .text {
   position: absolute;
   text-align: right;
@@ -23,13 +27,13 @@
   font-size: 66px;
   font-weight 500;
   margin-bottom: 10px;
-  font-weight: bold;
+  font-family: 'Playfair Display', serif;
 }
 
 .left h2 {
   color: #B1B0B7;
   font-size: 26px;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 .left #quote {
