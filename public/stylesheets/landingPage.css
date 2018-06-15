@@ -112,10 +112,10 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 76vh;
+    bottom: 68vh;
   }
   .right {
-    top: 50vh;
+    top: 32vh;
     bottom: 0;
   }
 
@@ -148,7 +148,7 @@
   }
 
   .right article.about {
-    top: 3vh;
+    top: 31vh;
   }
 }
 
