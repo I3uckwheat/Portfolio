@@ -15,7 +15,7 @@
   text-align: right;
   bottom: 40%;
   right: 0;
-  margin-right: 40px;
+  margin-right: 45px;
   color: #F2F2F0;
 }
 
@@ -38,12 +38,8 @@
 }
 
 .right {
-  font-family: lato;
-  background-color: #F2F2F0;
-  color: #2221268a;
-  left: 60%;
   right: 0;
-  overflow: hidden;
+  left: 60%;
 }
 
 .strong {
@@ -61,6 +57,98 @@
 }
 
 .right article.about p {
-  margin-bottom: 40px;
+  margin-bottom: 31px;
+}
+
+@media(max-width: 910px) {
+  .left h1 {
+    font-size: 53px;
+  }
+
+  .left h2 {
+    font-size: 20px
+  }
+
+  .left #quote {
+    font-size: 13px;
+  }
+
+  .right article.about {
+    font-size: 1.1em;
+  }
+
+  nav ul li a {
+    font-size: .9em;
+  }
+  nav ul li:after {
+    padding: 5px;
+  }
+
+}
+
+@media(max-width: 740px) {
+  .left h1 {
+    font-size: 45px;
+  }
+
+  .left h2 {
+    font-size: 18px;
+  }
+
+  .left #quote {
+    width: 199px;
+    float: right;
+  }
+
+  nav {
+    clear: right;
+  }
+}
+
+@media(max-width: 520px) {
+  .left, .right {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 76vh;
+  }
+  .right {
+    top: 50vh;
+    bottom: 0;
+  }
+
+  .left .text {
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .left h1 {
+    font-size: 44px;
+    font-weight 500;
+    margin-top: 30px;
+    font-weight: bold;
+  }
+
+  .left h2 {
+    font-size: 22px;
+    margin-bottom: inherit;
+  }
+
+  .left #quote {
+    display: none;
+  }
+
+  .left nav {
+    margin-top: 20px;
+  }
+
+  .right article.about {
+    top: 3vh;
+  }
 }
 
