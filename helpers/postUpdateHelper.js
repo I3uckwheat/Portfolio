@@ -5,33 +5,25 @@ const childProcess = require('child_process');
 exports.updatePosts = async (mongoose) => {
   const Post = mongoose.model('Post');
 
-  try {
-    const [postsDir, renderedPosts] = await Promise.all([
-      fs.readdir('../Portfolio/public/blogPosts'),
-      Post.find({}, {fileName: true})
-    ]);
+  const [postsDir, renderedPosts] = await Promise.all([
+    fs.readdir('../Portfolio/public/blogPosts'),
+    Post.find({}, {fileName: true})
+  ]);
 
-    const preRenderedPosts = postsDir.filter(contents => {
-      if(contents !== 'README.md' && contents[0] !== '.') return contents;
-      return null;
-    });
+  const preRenderedPosts = postsDir.filter(contents => {
+    if(contents !== 'README.md' && contents[0] !== '.') return contents;
+    return null;
+  });
 
-    const renderedPostNames = renderedPosts.map(post => post.fileName);
+  const renderedPostNames = renderedPosts.map(post => post.fileName);
 
-    await Promise.all(preRenderedPosts.map(async postName => {
-      if(renderedPostNames.includes(postName)) return updatePost(await renderPost(postName), Post);
-      return storeNewPost(await renderPost(postName), Post);
-    }));
-
-    console.log('Posts Updated');
-    return 'success';
-  } catch(err) {
-    console.log('Posts Failed to Update', err);
-    return 'failure';
-  }
+  await Promise.all(preRenderedPosts.map(async postName => {
+    if(renderedPostNames.includes(postName)) return updatePost(await renderPost(postName), Post);
+    return storeNewPost(await renderPost(postName), Post);
+  }));
 };
 
-exports.downloadPosts = async () => {
+exports.downloadPosts = async () => { // TODO - better errors
   return new Promise((resolve, reject) => {
     childProcess.execFile('./helpers/scripts/downloadBlogs.sh', (err, stdout, stderr) => {
       console.log(stdout.toString());
@@ -46,7 +38,7 @@ exports.downloadPosts = async () => {
   });
  };
 
-async function renderPost(postName) { // todo - handle errors
+async function renderPost(postName) {
   console.log('rendering', postName);
   const mdConverter = new showdown.Converter({strikethrough: true, simpleLIneBreaks: true, tables: true});
   const [markDown, meta] = await Promise.all([
@@ -68,7 +60,6 @@ async function storeNewPost (renderedPost, model) {
   return 'success';
 };
 
-async function updatePost (renderedPost, model) { // TODO - error handling
+async function updatePost (renderedPost, model) {
   await model.findOneAndUpdate({fileName: renderedPost.fileName}, {...renderedPost}, {upsert: true}).exec();
-  return 'success';
 }

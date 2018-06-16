@@ -33,12 +33,17 @@ exports.downloadPosts = async (req, res, next) => {
     next();
   } catch (err) {
     console.log(err);
-    next(err);
+    res.status(500).send('Posts Failed to Download');
   }
 };
 
-exports.updatePosts = async (req, res, next) => { // markdown -> html and store in DB FIXME - better errors
-  const result = await postUpdateHelper.updatePosts(mongoose);
-  if (result === 'success') return res.send('<h1>Posts Updated</h1>');
-  return res.send('<h1>Posts Failed To Update</h1>');
+exports.updatePosts = async (req, res, next) => {
+  try {
+    await postUpdateHelper.updatePosts(mongoose);
+    console.log('Posts Updated');
+    res.status(200).send('Posts Updated');
+  } catch(err) {
+    console.log('Posts Failed to Update', err);
+    res.status(500).send(err);
+  }
 };

@@ -47,7 +47,7 @@
 }
 
 .strong {
-  color: #222126e6;
+  color: hsla(252, 7%, 14%, 0.7294117647058823);
   font-weight: bold;
 }
 
@@ -58,13 +58,28 @@
   font-size: 1.5em;
   width: 78%;
   margin-left: 45px;
+  color: #2221269e;
 }
 
 .right article.about p {
   margin-bottom: 31px;
 }
 
+.social img {
+  margin-right: 10%;
+  height: 40px;
+  width: auto;
+}
+
 @media(max-width: 910px) {
+  .left .text {
+    margin-right: 30px;
+  }
+
+  .right article.about {
+    margin-left: 30px;
+  }
+
   .left h1 {
     font-size: 53px;
   }
@@ -78,7 +93,7 @@
   }
 
   .right article.about {
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
   nav ul li a {
@@ -88,6 +103,9 @@
     padding: 5px;
   }
 
+  .social img {
+    height: 30px;
+  }
 }
 
 @media(max-width: 740px) {
