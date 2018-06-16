@@ -40,8 +40,8 @@ nav ul li {
 }
 
 nav ul li:after {
-  padding: 10px;
-  content: '|'
+  padding: 9px;
+  content: '|';
 }
 
 nav ul li:last-child:after {

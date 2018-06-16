@@ -4,15 +4,15 @@ block stylesheets
   link(rel="stylesheet", href="/stylesheets/landingPage.css")
 
 block body
-  .left
+  header
     .text
       h1 Briggs Elsperger
       h2 Fullstack JavaScript Developer
-      p#quote.faint-text "simple broad strokes are better than clumsy fine strokes" -Cornelius Soon
+      p#quote.faint-text "simple broad strokes are better than clumsy fine strokes" #[span.credit -Cornelius Soon]
       nav
         include ../navList.pug
 
-  .right
+  .body
     article.about
       p hi, i'm briggs.
       p i like long walks in the rain and javascript
