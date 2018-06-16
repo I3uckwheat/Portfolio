@@ -1,7 +1,5 @@
 header {
   position: relative;
-  background-color: #222126;
-  font-family: 'Playfair Display', serif;
   height: 30vh;
   min-height: 155px;
   max-height: 290px;
@@ -74,5 +72,57 @@ header nav {
 }
 
 @media(min-width: 725px) {
-  
+  header {
+    position: absolute;
+    height: auto;
+    width: auto;
+    max-height: none;
+    left: 0;
+    top: 0;
+    right: 36%;
+    bottom: 0;
+  }
+
+  header .text {
+    right: 6%;
+    text-align: right;
+    width: auto;
+  }
+
+  header h1 {
+    font-size: calc(49px + .5vw);
+  }
+
+  header h2 {
+    font-size: calc(27px + .5vw);
+  }
+
+  header #quote {
+    font-size: calc(14px + 0.3vw);
+  }
+
+  .body {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 64%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .body article.about {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    margin-left: 6%;
+    font-size: calc(15px + 0.5vw);
+  }
+}
+
+@media(min-width: 1500px) {
+  .body article.about p {
+    padding-bottom: 40px;
+  }
 }
