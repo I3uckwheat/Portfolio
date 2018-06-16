@@ -3,6 +3,8 @@ header {
   background-color: #222126;
   font-family: 'Playfair Display', serif;
   height: 30vh;
+  min-height: 155px;
+  max-height: 290px;
   width: 100vw;
   text-align: center;
 }
@@ -15,19 +17,19 @@ header {
 }
 
 header h1 {
-  font-size: 2.3em;
+  font-size: 12vw;
   margin-bottom: 10px;
 }
 
 header h2 {
-  font-size: 1.3em;
+  font-size: 6vw;
   color: #B1B0B7;
   margin-bottom: 10px;
 }
 
 header #quote {
-  font-size: 0.8em;
-  color: #ffffff2b;
+  font-size: 2.7vw;
+  color: #ffffff47;
   margin-bottom: 10px;
 }
 
@@ -46,14 +48,19 @@ header nav {
 
 .body article.about {
   margin-left: 10%;
-  padding-top: 9vh;
+  padding-top: 8.3vh;
   width: auto;
   color: #2221269e;
-  font-size: 1em;
+  font-size: 5vw;
 }
 
 .body article.about p {
-  padding-bottom: 10%;
+  padding-bottom: 8%;
+}
+
+.body .strong {
+  color: #222126ba;
+  font-weight: bold;
 }
 
 .social {
@@ -62,7 +69,10 @@ header nav {
 
 .social img {
   width: auto;
-  height: 35px;
-  margin-top: 20px;
+  height: 9vw;
   margin-right: 20px;
+}
+
+@media(min-width: 725px) {
+  
 }

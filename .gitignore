@@ -3,3 +3,4 @@ variables.env
 public/blogPosts
 public/blogPosts.bak/
 .#*
+*.note
