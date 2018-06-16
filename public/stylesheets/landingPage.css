@@ -1,175 +1,68 @@
-.left, .right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-}
-
-.left {
+header {
+  position: relative;
   background-color: #222126;
-  left: 0;
-  right: 40%;
-}
-
-.left nav {
-  font-size: 1.2em;
-}
-
-.left .text {
-  position: absolute;
-  text-align: right;
-  bottom: 40%;
-  right: 0;
-  margin-right: 45px;
-  color: #F2F2F0;
-}
-
-.left h1 {
-  font-size: 66px;
-  font-weight 500;
-  margin-bottom: 10px;
   font-family: 'Playfair Display', serif;
+  height: 30vh;
+  width: 100vw;
+  text-align: center;
 }
 
-.left h2 {
-  color: #B1B0B7;
-  font-size: 26px;
-  margin-bottom: 18px;
-}
-
-.left #quote {
-  margin-bottom: 22px;
-  color: #ffffff2b;
-}
-
-.right {
-  right: 0;
-  left: 60%;
-}
-
-.strong {
-  color: hsla(252, 7%, 14%, 0.7294117647058823);
-  font-weight: bold;
-}
-
-.right article.about {
+.text {
   position: absolute;
+  width: 100%;
   top: 50%;
-  transform: translate(0%, -50%);
-  font-size: 1.5em;
-  width: 78%;
-  margin-left: 45px;
-  color: #2221269e;
+  transform: translateY(-50%);
 }
 
-.right article.about p {
-  margin-bottom: 31px;
+header h1 {
+  font-size: 2.3em;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  font-size: 1.3em;
+  color: #B1B0B7;
+  margin-bottom: 10px;
+}
+
+header #quote {
+  font-size: 0.8em;
+  color: #ffffff2b;
+  margin-bottom: 10px;
+}
+
+header #quote .credit {
+  white-space: nowrap;
+}
+
+header nav {
+  position: static;
+  margin: auto;
+}
+
+.body {
+  width: 100vw;
+}
+
+.body article.about {
+  margin-left: 10%;
+  padding-top: 9vh;
+  width: auto;
+  color: #2221269e;
+  font-size: 1em;
+}
+
+.body article.about p {
+  padding-bottom: 10%;
+}
+
+.social {
+  margin-left: 10%;
 }
 
 .social img {
-  margin-right: 10%;
-  height: 40px;
   width: auto;
+  height: 35px;
+  margin-top: 20px;
+  margin-right: 20px;
 }
-
-@media(max-width: 910px) {
-  .left .text {
-    margin-right: 30px;
-  }
-
-  .right article.about {
-    margin-left: 30px;
-  }
-
-  .left h1 {
-    font-size: 53px;
-  }
-
-  .left h2 {
-    font-size: 20px
-  }
-
-  .left #quote {
-    font-size: 13px;
-  }
-
-  .right article.about {
-    font-size: 1em;
-  }
-
-  nav ul li a {
-    font-size: .9em;
-  }
-  nav ul li:after {
-    padding: 5px;
-  }
-
-  .social img {
-    height: 30px;
-  }
-}
-
-@media(max-width: 740px) {
-  .left h1 {
-    font-size: 45px;
-  }
-
-  .left h2 {
-    font-size: 18px;
-  }
-
-  .left #quote {
-    width: 199px;
-    float: right;
-  }
-
-  nav {
-    clear: right;
-  }
-}
-
-@media(max-width: 520px) {
-  .left, .right {
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 68vh;
-  }
-  .right {
-    top: 32vh;
-    bottom: 0;
-  }
-
-  .left .text {
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    margin-right: 0;
-  }
-
-  .left h1 {
-    font-size: 44px;
-    font-weight 500;
-    margin-top: 30px;
-  }
-
-  .left h2 {
-    font-size: 22px;
-    margin-bottom: inherit;
-  }
-
-  .left #quote {
-    display: none;
-  }
-
-  .left nav {
-    margin-top: 20px;
-  }
-
-  .right article.about {
-    top: 31vh;
-  }
-}
-
