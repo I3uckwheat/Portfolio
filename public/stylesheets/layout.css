@@ -1,10 +1,12 @@
 body {
   background-color: #F2F2F0;
   color: #222126;
+  font-family: 'Lato', sans-serif;
 }
 
 p {
-  line-height: 1.4em;
+  font-size: .9em;
+  line-height: 1.8em;
 }
 
 h2, h3, h4 {
@@ -22,7 +24,7 @@ h4 {
 }
 
 header {
-  height: 197px;
+  height: 132px;
   background-color: #222126;
   color: #F2F2F0;
   font-family: 'Playfair Display', serif;
@@ -31,7 +33,7 @@ header {
 header nav {
   position: relative;
   top: 20px;
-  margin-left: 20px;
+  margin-left: 4px;
 }
 
 nav ul li {
@@ -40,7 +42,7 @@ nav ul li {
 }
 
 nav ul li:after {
-  padding: 9px;
+  padding: 4px;
   content: '|';
 }
 
@@ -51,7 +53,7 @@ nav ul li:last-child:after {
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 1.3em;
+  font-size: 0.9em;
 }
 
 nav a:hover,
@@ -60,25 +62,26 @@ nav a:active {
 }
 
 header .title h1 {
-  font-size: 3em;
-  padding: 57px 0 50px 20px;
+  font-size: 2.7em;
+  padding: 38px 0 0px 4px;
 }
 
 .content-container {
-  font-size: 19px;
+  font-size: 17px;
   line-height: 20px;
   font-family: 'Lato', sans-serif;
 }
 
 .content {
   margin: auto;
-  max-width: 60%;
+  margin-left: calc(2px + 7.5vw);
+  max-width: 88%;
   padding-bottom: 90px;
-  padding-top: 90px;
+  padding-top: 35px;
 }
 
 .content article.about {
-  margin-bottom: 45px;
+  margin-bottom: 35px;
 }
 
 .content a {
@@ -134,6 +137,7 @@ header .title h1 {
 .content .project-showcase h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 31px;
 }
 
 .content .project-showcase > li {
@@ -167,32 +171,42 @@ header .title h1 {
   content: none;
 }
 
-@media(max-width: 500px) {
-  nav a {
+@media(min-width: 600px) {
+  p {
+    line-height: 1.4em;
     font-size: 1em;
   }
 
+  header {
+    height: 197px;
+  }
+
+  header nav {
+    margin-left: 20px;
+  }
+
   nav ul li:after {
-    padding: 5px;
+    padding: 9px;
+  }
+
+  nav a {
+    font-size: 1.3em;
   }
 
   header .title h1 {
-    font-size: 2.5em;
-    padding-top: 50px;
+    font-size: 3em;
+    padding: 57px 0 50px 20px;
   }
 
-  header {
-    height: 146px;
+  .content-container {
+    font-size: 19px;
   }
 
   .content {
-    margin-left: 35px;
-    max-width: 80%;
+    max-width: 70%
   }
-}
 
-@media(max-width: 360px) {
-  nav a {
-    font-size: .9em;
+  .content article.about {
+    margin-bottom: 45px;
   }
-}
+ }
