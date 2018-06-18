@@ -7,6 +7,10 @@ header {
   text-align: center;
 }
 
+p {
+  line-height: 1em;
+}
+
 .text {
   position: absolute;
   width: 100%;
@@ -54,6 +58,7 @@ header nav {
 
 .body article.about p {
   padding-bottom: calc(12px + 3.1vh);
+  font-size: 1em;
 }
 
 .body .strong {
@@ -71,13 +76,11 @@ header nav {
 @media(min-width: 725px) {
   header {
     position: absolute;
-    height: auto;
+    height: 100vh;
     width: auto;
     max-height: none;
     left: 0;
-    top: 0;
     right: 36%;
-    bottom: 0;
   }
 
   header .text {
@@ -101,11 +104,9 @@ header nav {
   .body {
     position: absolute;
     width: auto;
-    height: auto;
+    height: 100vh;
     left: 64%;
     right: 0;
-    top: 0;
-    bottom: 0;
   }
 
   .body article.about {
