@@ -51,10 +51,10 @@
   font-weight: bold;
 }
 
-#blog-post ol,
-#blog-post ul {
-  margin-bottom 30px;
-}
+/* #blog-post ol, */
+/* #blog-post ul { */
+/*   margin-bottom 30px; */
+/* } */
 
 #blog-post ol {
   list-style-type: decimal;
