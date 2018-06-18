@@ -1,3 +1,5 @@
+/* TODO - change colors of text */
+
 #blog-post {
   color: #222126;
   line-height: 27px;
@@ -51,10 +53,10 @@
   font-weight: bold;
 }
 
-#blog-post ol,
-#blog-post ul {
-  margin-bottom 30px;
-}
+/* #blog-post ol, */
+/* #blog-post ul { */
+/*   margin-bottom 30px; */
+/* } */
 
 #blog-post ol {
   list-style-type: decimal;

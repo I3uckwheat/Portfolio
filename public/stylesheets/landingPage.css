@@ -74,6 +74,9 @@ header nav {
 }
 
 @media(min-width: 725px) {
+  body {
+    overflow: hidden;
+  }
   header {
     position: absolute;
     height: 100vh;
