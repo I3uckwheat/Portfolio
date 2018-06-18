@@ -28,7 +28,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp start"
+    "start": "gulp start",
+    "build": "gulp build",
+    "start:prod": "node start.js"
   },
   "repository": {
     "type": "git",

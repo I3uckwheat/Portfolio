@@ -5,9 +5,8 @@ const nodemon = require('gulp-nodemon');
 const changed = require('gulp-changed');
 
 
-gulp.task('default', ['dev']);
-gulp.task('dev', ['compile-css', 'compress-images']); // TODO - add sourcemaps
-gulp.task('prod', ['compile-css', 'compress-images']);
+gulp.task('default', ['build']);
+gulp.task('build', ['compile-css', 'compress-images']); // TODO - add sourcemaps
 
 gulp.task('start', () => {
   const stream = nodemon({
