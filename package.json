@@ -19,14 +19,16 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-changed": "^3.2.0",
     "gulp-clean-css": "^3.9.4",
     "gulp-imagemin": "^4.1.0",
+    "gulp-nodemon": "^2.2.1",
     "jest": "^23.0.1",
     "nodemon": "^1.17.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon start.js"
+    "start": "gulp start"
   },
   "repository": {
     "type": "git",
