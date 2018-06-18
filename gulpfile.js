@@ -1,4 +1,5 @@
 //TODO - sourcemaps when needed
+//TODO - setup npm script
 
 const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css');
