@@ -1,3 +1,4 @@
+const path = require('path');
 const fs = require('fs-extra');
 const showdown = require('showdown');
 const childProcess = require('child_process');
@@ -25,7 +26,7 @@ exports.updatePosts = async (mongoose) => {
 
 exports.downloadPosts = async () => { // TODO - better errors
   return new Promise((resolve, reject) => {
-    childProcess.execFile('./helpers/scripts/downloadBlogs.sh', (err, stdout, stderr) => {
+    childProcess.execFile(path.resolve(__dirname, 'scripts', 'downloadBlogs.sh'), (err, stdout, stderr) => {
       console.log(stdout.toString());
       if (err) {
         console.log(stderr);
