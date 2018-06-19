@@ -23,7 +23,7 @@ exports.developmentErrors = (err, req, res, next) => {
   res.format({
     //based on the 'accept' http header
     'text/html': () => {
-      res.render('error', errorDetails);
+      res.render('error', {...errorDetails, title: err.status});
     },
     'application/json': () => res.json(errorDetails)
   });
@@ -32,6 +32,7 @@ exports.developmentErrors = (err, req, res, next) => {
 exports.productionErrors = (err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error', {
+    title: err.status,
     message: err.message,
     error: {}
   });
