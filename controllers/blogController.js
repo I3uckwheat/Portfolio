@@ -23,7 +23,8 @@ exports.index = async (req, res, next) => {
 
 exports.getPost = async (req, res, next) => {
   const post = await Post.findOne({slug: req.params.slug});
-  res.render('blog/blog', {title: 'plaintext', post});
+  if (!post) return next();
+  return res.render('blog/blog', {title: 'plaintext', post});
 };
 
 exports.downloadPosts = async (req, res, next) => {
