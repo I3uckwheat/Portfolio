@@ -29,7 +29,7 @@ exports.developmentErrors = (err, req, res, next) => {
   });
 };
 
-exports.productionErrors = (err, req, res, next) => {
+exports.productionErrors = (err, req, res, next) => { // TODO - log errors
   res.status(err.status || 500);
   res.render('error', {
     title: err.status,
