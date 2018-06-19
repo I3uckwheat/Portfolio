@@ -6,6 +6,8 @@ const postUpdateHelper = require('./helpers/postUpdateHelper.js');
 
 require('dotenv').config({path: 'variables.env'});
 
+const root = path.join(process.mainModule.paths[0].split('node_modules')[0].slice(0, -1));
+
 mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (err) => {
@@ -14,9 +16,11 @@ mongoose.connection.on('error', (err) => {
 
 require("./models/Blog.js");
 
-if(!fs.existsSync('./public/blogPosts/')) {
+console.log(root);
+
+if(!fs.existsSync(path.join(root, 'public', 'blogPosts'))) {
   console.log('initializing Blogs');
-  const gitClone = childProcess.execFileSync(path.resolve(__dirname, 'helpers', 'scripts', 'initBlogs.sh'), [process.env.BLOG_REPO]);
+  const gitClone = childProcess.execFileSync(path.resolve(root, 'helpers', 'scripts', 'initBlogs.sh'), [root, process.env.BLOG_REPO]);
   console.log('syncing with db');
 };
 

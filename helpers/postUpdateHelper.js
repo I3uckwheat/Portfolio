@@ -3,11 +3,13 @@ const fs = require('fs-extra');
 const showdown = require('showdown');
 const childProcess = require('child_process');
 
+const root = path.join(process.mainModule.paths[0].split('node_modules')[0].slice(0, -1));
+
 exports.updatePosts = async (mongoose) => {
   const Post = mongoose.model('Post');
 
   const [postsDir, renderedPosts] = await Promise.all([
-    fs.readdir('../Portfolio/public/blogPosts'),
+    fs.readdir(path.join(root, 'public', 'blogPosts')),
     Post.find({}, {fileName: true})
   ]);
 
@@ -26,7 +28,7 @@ exports.updatePosts = async (mongoose) => {
 
 exports.downloadPosts = async () => { // TODO - better errors
   return new Promise((resolve, reject) => {
-    childProcess.execFile(path.resolve(__dirname, 'scripts', 'downloadBlogs.sh'), (err, stdout, stderr) => {
+    childProcess.execFile(path.resolve(root, 'helpers', 'scripts', 'downloadBlogs.sh'), (err, stdout, stderr) => {
       console.log(stdout.toString());
       if (err) {
         console.log(stderr);
@@ -43,8 +45,8 @@ async function renderPost(postName) {
   console.log('rendering', postName);
   const mdConverter = new showdown.Converter({strikethrough: true, simpleLIneBreaks: true, tables: true});
   const [markDown, meta] = await Promise.all([
-    fs.readFile(`../Portfolio/public/blogPosts/${postName}/${postName}.md`),
-    fs.readFile(`../Portfolio/public/blogPosts/${postName}/meta.json`)
+    fs.readFile(path.join(root, 'public', 'blogPosts', postName, `${postName}.md`)),
+    fs.readFile(path.join(root, 'public', 'blogPosts', postName, 'meta.json'))
   ]);
   const htmlString = mdConverter.makeHtml(markDown.toString());
   const metaData = JSON.parse(meta);

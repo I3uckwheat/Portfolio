@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd ./public/
-git clone $1 blogPosts
+cd $1/public/
+git clone $2 blogPosts
