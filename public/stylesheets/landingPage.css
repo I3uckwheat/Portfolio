@@ -44,10 +44,6 @@ header nav {
   margin: auto;
 }
 
-.body {
-  width: 100vw;
-}
-
 .body article.about {
   margin-left: 10%;
   padding-top: 8vh;
@@ -57,7 +53,7 @@ header nav {
 }
 
 .body article.about p {
-  padding-bottom: calc(12px + 3.1vh);
+  margin-bottom: calc(12px + 3.1vh);
   font-size: 1em;
 }
 
@@ -74,9 +70,6 @@ header nav {
 }
 
 @media(min-width: 725px) {
-  body {
-    overflow: hidden;
-  }
   header {
     position: absolute;
     height: 100vh;
