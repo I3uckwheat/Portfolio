@@ -3,6 +3,7 @@ const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const nodemon = require('gulp-nodemon');
 const changed = require('gulp-changed');
+const sourcemaps = require('gulp-sourcemaps');
 
 
 gulp.task('default', ['build']);
@@ -14,7 +15,7 @@ gulp.task('build', ['compile-css', 'compress-images']); // TODO - add sourcemaps
 gulp.task('start', () => {
   const stream = nodemon({
     script: 'start.js',
-    ext: 'js pug ',
+    ext: 'js pug css',
     tasks: ['build'],
     done: 'done'
   });
@@ -25,7 +26,9 @@ gulp.task('compile-css', () => {
   const dest = './public/dist/stylesheets';
   return gulp.src(src)
     .pipe(changed(dest))
+    .pipe(sourcemaps.init())
     .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(dest));
 });
 

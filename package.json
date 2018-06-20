@@ -23,6 +23,7 @@
     "gulp-clean-css": "^3.9.4",
     "gulp-imagemin": "^4.1.0",
     "gulp-nodemon": "^2.2.1",
+    "gulp-sourcemaps": "^2.6.4",
     "jest": "^23.0.1",
     "nodemon": "^1.17.5"
   },
