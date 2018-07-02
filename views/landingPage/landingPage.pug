@@ -1,25 +1,23 @@
 extends ../layout
 
-block stylesheets
-  link(rel="stylesheet", href="dist/stylesheets/landingPage.css")
-
 block body
-  header
-    .text
-      h1 Briggs Elsperger
-      h2 Fullstack JavaScript Developer
-      p#quote.faint-text "simple broad strokes are better than clumsy fine strokes" #[span.credit -Cornelius Soon]
-      nav
-        include ../navList.pug
+  .landing
+    header
+      .text
+        h1 Briggs Elsperger
+        h2 Fullstack JavaScript Developer
+        p#quote.faint-text "simple broad strokes are better than clumsy fine strokes" #[span.credit -Cornelius Soon]
+        nav
+          include ../navList.pug
 
-  .body
-    article.about
-      p Hi, I'm Briggs.
-      p I like long walks in the rain and JavaScript.
-      p I make responsive, clean websites,
-      p and javascript applications.
-      p.strong For Hire: briggse@protonmail.com
-      .social
-        a(href='https://www.linkedin.com/in/briggs-elsperger/'): img(src='/dist/images/linked-in.png')
-        a(href='https://github.com/I3uckwheat'): img(src='/dist/images/github.png')
-        a(href='mailto:briggse@protonmail.com'): img(src='/dist/images/mail.png')
+    .body
+      article.about
+        p Hi, I'm Briggs.
+        p I like long walks in the rain and JavaScript.
+        p I make responsive, clean websites,
+        p and javascript applications.
+        p.strong For Hire: briggse@protonmail.com
+        .social
+          a(href='https://www.linkedin.com/in/briggs-elsperger/'): img(src='/dist/images/linked-in.png')
+          a(href='https://github.com/I3uckwheat'): img(src='/dist/images/github.png')
+          a(href='mailto:briggse@protonmail.com'): img(src='/dist/images/mail.png')
