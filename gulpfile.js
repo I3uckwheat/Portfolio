@@ -10,7 +10,7 @@ gulp.task('default', ['build']);
 
 // TODO - remove all files in dest before compile
 gulp.task('build:prod', ['compile-css:prod', 'compress-images:prod']);
-gulp.task('build', ['compile-css', 'compress-images']); // TODO - add sourcemaps
+gulp.task('build', ['compile-css', 'compress-images']); 
 
 gulp.task('start', () => {
   const stream = nodemon({
