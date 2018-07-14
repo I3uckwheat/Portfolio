@@ -115,6 +115,10 @@ header .title h1 {
   max-width: 780px;
 }
 
+.content .sub-list {
+  font-weight: normal;
+}
+
 .content img {
   border: 1px solid #22212647;
   margin: -10px 20px 25px 0;
