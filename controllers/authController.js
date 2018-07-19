@@ -9,7 +9,7 @@ exports.verifyWebhook = (req, res, next) => {
   hmac.update(JSON.stringify(req.body));
   const localSha1Signature = Buffer.from('sha1=' + hmac.digest('hex'));
 
-  if(crypto.timingSafeEqual(localSha1Signature, remoteSha1Signature)) {
+  if (crypto.timingSafeEqual(localSha1Signature, remoteSha1Signature)) {
     console.log('github validated');
     next();
   } else {
