@@ -14,7 +14,7 @@ exports.index = async (req, res, next) => {
       { $project: { _id: 0, posts: 1, date: { year: '$_id.year', month: '$_id.month' } } }
     ]).exec();
 
-    res.render('blog/index', {title: 'plaintext', dates});
+    res.render('blog/index', {title: 'blog', dates});
   } catch(err) {
     console.log(err);
     next(err);
