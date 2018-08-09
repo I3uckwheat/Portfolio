@@ -25,7 +25,7 @@ header h1 {
 
 header h2 {
   font-size: 6vw;
-  color: #B1B0B7;
+  color: #b1b0b7;
   margin-bottom: 10px;
 }
 
@@ -50,6 +50,7 @@ header nav {
   width: auto;
   color: #2221269e;
   font-size: 5vw;
+  z-index: -1;
 }
 
 .body article.about p {
@@ -69,7 +70,7 @@ header nav {
   margin-right: 20px;
 }
 
-@media(min-width: 725px) {
+@media (min-width: 725px) {
   header {
     position: absolute;
     height: 100vh;
@@ -86,15 +87,24 @@ header nav {
   }
 
   header h1 {
-    font-size: calc(49px + .5vw);
+    font-size: calc(49px + 0.5vw);
   }
 
   header h2 {
-    font-size: calc(27px + .5vw);
+    font-size: calc(27px + 0.5vw);
   }
 
   header #quote {
     font-size: calc(14px + 0.3vw);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .body {
@@ -103,6 +113,12 @@ header nav {
     height: 100vh;
     left: 64%;
     right: 0;
+  }
+
+  @keyframes slideIn {
+    from {
+      margin-left: -1000px;
+    }
   }
 
   .body article.about {
@@ -116,11 +132,14 @@ header nav {
 
   .body article.about .social img {
     height: 4.2vw;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.7s 1 normal forwards running;
   }
 }
 
-@media(min-width: 1500px) {
+@media (min-width: 1500px) {
   .body article.about p {
     padding-bottom: 40px;
+    animation: slideIn 1s ease 0s 1 normal forwards running;
   }
 }
