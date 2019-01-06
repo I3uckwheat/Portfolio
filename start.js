@@ -10,7 +10,11 @@ const root = path.join(
   process.mainModule.paths[0].split('node_modules')[0].slice(0, -1)
 );
 
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.DATABASE, {
+    reconnectTries: Number.MAX_VALUE,
+    reconnectInterval: 1000
+});
+
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', err => {
   console.error(err.message);
