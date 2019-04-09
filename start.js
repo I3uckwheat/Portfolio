@@ -12,7 +12,8 @@ const root = path.join(
 
 mongoose.connect(process.env.DATABASE, {
     reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 1000
+    reconnectInterval: 1000,
+    useNewUrlParser: true
 });
 
 mongoose.Promise = global.Promise;
