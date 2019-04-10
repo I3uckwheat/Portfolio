@@ -19,13 +19,20 @@ block content
           p This site was built for a fire department, It was built with express, using the pug templating engine. The website features a full administrative panel with administrator privileges and management. After building this site, the administrators of the site can change the content themselves, including most images.
 
       li
-        a(href='https://github.com/I3uckwheat/configzme' target='_blank'): h2 Configz.me
+        a(href='https://trinitywatertown.com/' target='_blank'): h2 Trinity Episcopal Church
+        article
+          a(href='https://trinitywatertown.com/' target='_blank'): img(src='/dist/images/projects/trinity.png')
+          a(href='https://trinitywatertown.com/' target='_blank'): img(src='/dist/images/projects/trinity2.png')
+          p Designed and developed by me from end to end. Started with figma and realized with 
+
+      li
+        a(href='https://configz.me/' target='_blank'): h2 Configz.me
         article
           a(href='https://configz.me/' target='_blank'): img(src='/dist/images/projects/configzme.png')
           a(href='https://configz.me/' target='_blank'): img(src='/dist/images/projects/configzme2.png')
           p Configz.me addresses the problem of easily moving around configuration files, specifically dotfiles. This came about when I found I was cloning from github frequently on the multiple servers I was working on to grab my .vimrc configuration. I figured a clean API with curl would be a great solution. I now use this to manage my configuration files.
           br
-          p Feel free to use it, click on an image above to be taken to the website for directions. Please note: it doesn't encrypt the dotfiles, but all passwords are stored as a salted hash. It was built with Node/Express.js.
+          p Feel free to use it, click on an image above to be taken to the website for directions. Please note: it doesn't encrypt the dotfiles, but all passwords are stored as a salted hash. It was built with Node/Express.js. Source code is on github #[a(href='https://github.com/I3uckwheat/configzme' target='_blank') here]
       li
         a(href='https://i3uckwheat.github.io/Snake-JS/' target='_blank'): h2 SnakeJS
         article
@@ -51,3 +58,12 @@ block content
                 li - Lead a team in refactoring the installation lessons.
                 li - Wrote the introduction lesson for React.
                 li - Write the Async and Await JavaScript lesson.
+                
+          li
+            h3 Various Websites and tools for Software Alternatives
+            .links
+              h4: a(href='https://www.precisionreloading.com/' target='_blank') Precision Reloading
+              h4: a(href='https://www.t-r.com' target='_blank') T&R electric
+              h4: a(href='https://secure.paigesmusic.com/rentals/' target='_blank') Paige's Music Rentals
+            article
+              p I inherited these projects when I was hired at Software Alternatives, they are built with PHP on top of an in-house framework, I am currently leading a team to re-work these websites and build them on a more conventional and performant platform. Starting with the checkout page of Precision Reloading, I chose Express for the API to integrate with the IBMi DB2 database, and a Nuxt frontend to saturate the views. The Nuxt app is built to be decoupled from the API and can be adapted to other customers with ease. If you would like to learn more about Software Alternatives, click #[a(href='http://softaltern.com/' target='_blank') here]
