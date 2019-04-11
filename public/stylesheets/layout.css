@@ -16,7 +16,7 @@ h2, h3, h4 {
 }
 
 h3 {
-  font-size: 1.4em;
+  font-size: 1.7em;
 }
 
 h4 {
@@ -160,6 +160,10 @@ header .title h1 {
 
 .other ul {
   margin-top: 20px;
+}
+
+.other > ul > li {
+  margin-bottom: 65px;
 }
 
 .other li article {
