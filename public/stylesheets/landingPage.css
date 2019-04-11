@@ -5,6 +5,8 @@ header {
   max-height: 290px;
   width: 100vw;
   text-align: center;
+  z-index:  999;
+
 }
 
 p {
@@ -50,7 +52,20 @@ header nav {
   width: auto;
   color: #2221269e;
   font-size: 5vw;
+  animation: slide-right 1s;
 }
+
+.social {
+  animation: slide-right 1s;
+  animation-delay: .3s;
+}
+
+@keyframes slide-right {
+  from {
+    margin-left: -500%;
+  }
+}
+
 
 .body article.about p {
   margin-bottom: calc(12px + 3.1vh);
